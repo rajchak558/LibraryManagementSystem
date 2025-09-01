@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library-Management-System</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #555570; */
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.5),   
+                rgba(0, 0, 0, 0.5) ),
+              url(https://img.freepik.com/premium-photo/wooden-table_36051-46.jpg?w=360);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .login-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bttn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #c1b2cca2;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bttn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <button>Member's login</button>
+    <div class="login-details">
+        <button class="bttn">Member's login</button>
+        <button class="bttn">Administraitor login</button>
+    </div>
 </body>
+
 </html>
