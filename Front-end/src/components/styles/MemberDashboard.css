@@ -1,0 +1,80 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* sidebar (Dashboard_layout) */
+.member-dashboard {
+  display: flex;
+  flex: 1;
+}
+/* Sidebar (aside) */
+.member-dashboard-sidebar {
+  width: 250px;
+  background-color: #4f724dda; /* slate-800 #7e99c5da;#355734da;*/
+  border-radius: 10px;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Edit profile button */
+.edit-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #617262c2; /* slate-700 */
+  font-weight: bold;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.edit-profile:hover {
+  background-color: rgba(255, 255, 0, 0.681); /*slate #46699d; #b1bc5ce7;*/
+}
+
+/* Sidebar headings (Dashboard, Menu, Preferences) */
+.member-dashboard-sidebar h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;  /* icon and text spacing */
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.menu h3 {
+    text-decoration: underline;
+}
+.preferences h3 {
+    text-decoration: underline;
+}
+
+/* Menu & Preferences list */
+.menu ul,
+.preferences ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu ul li,
+.preferences ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.menu ul li:hover,
+.preferences ul li:hover {
+  color: #38bdf8; /* sky-400 */
+}
+.main-content {
+  flex: 1;
+  padding: 30px;
+  /* background-color: #f8fafc; slate-50 */
+}
