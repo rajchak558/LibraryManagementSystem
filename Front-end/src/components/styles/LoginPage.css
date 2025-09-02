@@ -1,0 +1,58 @@
+/* Center the login box */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px;
+  /* space for header */
+}
+
+/* Transparent glass-style login box */
+.login-box {
+  background: rgba(255, 255, 255, 0.2);
+  /* transparent white */
+  backdrop-filter: blur(10px);
+  /* glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  /* text stays readable on transparent background */
+}
+
+/* Input fields */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Login button */
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0, 123, 255, 0.8);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: rgba(0, 123, 255, 1);
+}
+.login-box input::placeholder {
+  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+  font-size: 14px;
+  color: #816969;
+}

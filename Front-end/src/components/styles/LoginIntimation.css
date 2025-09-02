@@ -1,0 +1,78 @@
+/* LoginIntimation.css */
+
+.login-intimation {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url("../images/library.jpg") no-repeat center center/cover;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.main-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Login options layout */
+.login-options {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Transparent cards (glassmorphism style) */
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  /* transparent white */
+  backdrop-filter: blur(10px);
+  /* glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 260px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.login-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Transparent styled button */
+.login-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:  0.2s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
