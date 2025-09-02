@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/LoginPage.css";
@@ -8,12 +8,21 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const location = useLocation();
-  const role = location.state?.role || "User"; // default if not passed
+  const navigate = useNavigate();
+
+  const role = location.state?.role || "User"; // default role
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(`Logging in as ${role} with:`, email, password);
-    // Add API call or authentication logic here
+
+    // Example authentication logic
+    if (role === "Admin") {
+      navigate("/admin/dashboard", { state: { profileName: email } });
+    } else {
+      alert("Redirecting to Member Dashboard (not implemented yet)");
+      // navigate("/member/dashboard", { state: { profileName: email } });
+    }
   };
 
   return (
