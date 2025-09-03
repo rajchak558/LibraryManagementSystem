@@ -56,3 +56,28 @@
   font-size: 14px;
   color: #816969;
 }
+.role-dropdown {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* When focused */
+.role-dropdown:focus {
+  border-color: #4a90e2;
+  box-shadow: 0px 0px 6px rgba(74, 144, 226, 0.5);
+  outline: none;
+}
+
+/* Dropdown options */
+.role-dropdown option {
+  padding: 10px;
+  font-size: 15px;
+}

@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
-//import "./styles/HomePage.css";
+
 
 function HomePage() {
   const navigate = useNavigate();
@@ -33,4 +33,6 @@ function HomePage() {
   );
 }
 
+
 export default HomePage;
+

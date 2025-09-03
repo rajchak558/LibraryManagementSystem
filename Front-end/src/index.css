@@ -5,21 +5,21 @@
   box-sizing: border-box;
 }
 
-  body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7),
-          /* black with 50% opacity */
-          rgba(0, 0, 0, 0.9)
-          /* black with 50% opacity */
-        ),url(.\images\library.jpg);
-      font-family:  "Lucida Handwriting", "Brush Script MT", cursive;
-      /* image inside public folder */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #86897a;
-      min-height: 100vh;
-    }
- 
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+      /* black with 50% opacity */
+      rgba(0, 0, 0, 0.9)
+      /* black with 50% opacity */
+    ), url(.\images\library.jpg);
+  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+  /* image inside public folder */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #86897a;
+  min-height: 100vh;
+}
+
 /* Header */
 .header {
   position: fixed;
@@ -117,4 +117,11 @@
   background: #ffd700;
   color: #000;
   transform: scale(1.05);
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px;
+  /* height of header */
 }
