@@ -18,5 +18,4 @@ function StaffDashboard() {
     </div>
   );
 }
-
 export default StaffDashboard;

@@ -16,41 +16,45 @@ function LoginPage() {
     e.preventDefault();
     console.log(`Logging in as ${role} with:`, email, password);
 
-    // Example authentication logic
+
     if (role === "Staff") {
       navigate("/staff/dashboard", { state: { profileName: email } });
-    } else {
-      alert("Redirecting to Member Dashboard (not implemented yet)");
-      // navigate("/member/dashboard", { state: { profileName: email } });
-    }
-  };
+    } 
+      if (role === "Member") {
+        navigate("/member/dashboard", { state: { profileName: email } });
+      } else {
+        alert("Redirecting to Member Dashboard (not implemented yet)");
+        // navigate("/member/dashboard", { state: { profileName: email } });
 
-  return (
-    <div className="page-container">
-      <Header />
-      <div className="login-box">
-        <h2>{role} Login</h2>
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
+      }
+    };
+
+    return (
+      <div className="page-container">
+        <Header />
+        <div className="login-box">
+          <h2>{role} Login</h2>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-}
+    );
+  }
 
 export default LoginPage;
