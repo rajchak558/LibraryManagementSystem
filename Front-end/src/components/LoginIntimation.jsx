@@ -42,4 +42,6 @@ function LoginIntimation() {
   );
 }
 
+
 export default LoginIntimation;
+

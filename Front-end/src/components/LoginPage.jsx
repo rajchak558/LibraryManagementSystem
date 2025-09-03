@@ -16,10 +16,19 @@ function LoginPage() {
     e.preventDefault();
     console.log(`Logging in as ${role} with:`, email, password);
 
+
+    if (role === "Staff") {
+      navigate("/staff/dashboard", { state: { profileName: email } });
+    } else {
+      navigate("/member/dashboard", { state: { profileName: email } });
+
+    // Example authentication logic
     if (role === "Admin") {
       navigate("/admin/dashboard", { state: { profileName: email } });
     } else {
-      navigate("/member/dashboard", { state: { profileName: email } });
+      alert("Redirecting to Member Dashboard (not implemented yet)");
+      // navigate("/member/dashboard", { state: { profileName: email } });
+
     }
   };
 
