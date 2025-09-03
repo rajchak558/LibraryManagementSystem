@@ -26,12 +26,11 @@ function LoginIntimation() {
           </div>
 
           <div className="login-card">
-            <h3>Admin Login</h3>
+            <h3>Staff Login</h3>
             <button
               className="login-btn"
-              onClick={() => navigate("/login/admin", { state: { role: "Admin" } })}
-            >
-              Login as Admin
+              onClick={() => navigate("/login/staff", { state: { role: "Staff" } })} >
+              Login as Staff
             </button>
           </div>
         </div>

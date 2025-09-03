@@ -17,8 +17,8 @@ function LoginPage() {
     console.log(`Logging in as ${role} with:`, email, password);
 
     // Example authentication logic
-    if (role === "Admin") {
-      navigate("/admin/dashboard", { state: { profileName: email } });
+    if (role === "Staff") {
+      navigate("/staff/dashboard", { state: { profileName: email } });
     } else {
       alert("Redirecting to Member Dashboard (not implemented yet)");
       // navigate("/member/dashboard", { state: { profileName: email } });

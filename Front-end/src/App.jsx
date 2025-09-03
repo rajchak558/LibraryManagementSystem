@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage.jsx";
 import LoginIntimation from "./components/LoginIntimation.jsx";
 import LoginPage from "./components/LoginPage.jsx";
-import AdminDashboard from "./components/AdminDashboard.jsx";
-import Catalog from "./components/Catalog.jsx";
+import StaffDashboard from "./components/StaffDashboard.jsx";
+import Catalog from "./components/Catalog.jsx"; 
+//import MemberDashboard from "./components/MemberDashboard.jsx";
+
 /*
 import Dashboard from "./components/Dashboard.jsx";
 
@@ -28,9 +30,9 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<LoginIntimation />} />
         <Route path="/login/member" element={<LoginPage role="Member" />} />
-        <Route path="/login/admin" element={<LoginPage role="Admin" />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        
+        <Route path="/login/staff" element={<LoginPage role="Staff" />} />
+        <Route path="/staff/dashboard" element={<StaffDashboard />} />
+      
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         {/* Member (Book Borrower) Routes 
