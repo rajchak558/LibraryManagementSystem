@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage.jsx";
 import LoginIntimation from "./components/LoginIntimation.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
+import MemberDashboard from "./components/MemberDashboard.jsx";
 import Catalog from "./components/Catalog.jsx";
 /*
 import Dashboard from "./components/Dashboard.jsx";
@@ -30,7 +31,7 @@ function App() {
         <Route path="/login/member" element={<LoginPage role="Member" />} />
         <Route path="/login/admin" element={<LoginPage role="Admin" />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        
+
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         {/* Member (Book Borrower) Routes 
@@ -48,4 +49,6 @@ function App() {
   );
 }
 
+
 export default App;
+
