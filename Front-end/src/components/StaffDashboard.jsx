@@ -1,4 +1,4 @@
-// StaffDashboard.jsx
+
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -116,5 +116,6 @@ function StaffDashboard() {
     </div>
   );
 }
+
 
 export default StaffDashboard;

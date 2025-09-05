@@ -11,7 +11,11 @@ import MemberDashboard from "./components/MemberDashboard.jsx";
 import ManageMembers from "./components/ManageMembers.jsx";
 import ManageBooks from "./components/ManageBooks"; 
 import SignUp from "./components/SignUp";
-/*
+import TotalBorrowed from "./components/TotalBorrowed";
+import PendingFines from "./components/PendingFines.jsx";
+import Catalog from "./components/Catalog.jsx";
+import BorrowedBooks from "./components/Booksborrowed.jsx";
+
 import Dashboard from "./components/Dashboard.jsx";
 
 // Member pages
@@ -38,6 +42,10 @@ function App() {
         <Route path="/staff/managemembers" element={<ManageMembers />} />
         <Route path="/staff/managebooks" element={<ManageBooks />} /> 
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/borrowed-books" element={<BorrowedBooks />}></Route>
+        <Route path="/total-borrowed" element={<TotalBorrowed />} />
+        <Route path="/pending-fines" element={<PendingFines />} />
+
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         {/* Member (Book Borrower) Routes 

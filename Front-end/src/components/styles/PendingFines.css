@@ -1,0 +1,102 @@
+.pending-fines-container {
+  max-width: 1200px;      
+  margin: 0 auto;         
+  padding: 20px;          
+  box-sizing: border-box;
+}
+.main-content2 {
+margin-left: 270px;
+ padding: 20px;
+}
+.main-content2 .dashboard-header-mid {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.dashboard-header-mid h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffeb3b;
+  margin-bottom: 8px;
+}
+.dashboard-header-mid p {
+  .dashboard-header p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+}
+/* Grid for fines */
+.fines-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  max-width: 900px;   /* limit width */
+  margin-left: auto;  /* center align */
+  margin-right: auto; /* center align */
+  
+}
+/* Card styles */
+/* .fine-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
+  color: #f1f1f1;
+} */
+.fine-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #f1f1f1;
+  text-align: center;
+}
+.fine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+}
+
+.fine-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffeb3b; /* highlight title */
+}
+
+.fine-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Status styles */
+.status {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.status.returned {
+  background: #4caf50;
+  color: #fff;
+}
+
+.status.overdue {
+  background: #f44336;
+  color: #fff;
+}
+
+/* Fine amount */
+.fine-amount {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffcc33;
+  margin-top: 10px;
+}
