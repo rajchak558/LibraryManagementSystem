@@ -4,12 +4,13 @@
   flex-direction: column;
   min-height: 100vh;
   padding-top: 80px;
-  /* space for header */
+  /* height of header */
 }
 
 /* Transparent glass-style login box */
 .login-box {
-  background: rgba(255, 255, 255, 0.2);
+  top : 8;
+  background: rgba(197, 178, 178, 0.223);
   /* transparent white */
   backdrop-filter: blur(10px);
   /* glass effect */
@@ -55,4 +56,58 @@
   font-family: "Lucida Handwriting", "Brush Script MT", cursive;
   font-size: 14px;
   color: #816969;
+}
+.role-dropdown {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* When focused */
+.role-dropdown:focus {
+  border-color: #4a90e2;
+  box-shadow: 0px 0px 6px rgba(74, 144, 226, 0.5);
+  outline: none;
+}
+
+/* Dropdown options */
+.role-dropdown option {
+  padding: 10px;
+  font-size: 15px;
+}
+/* Inline sign up section */
+.signup-inline {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  /* small space between text and button */
+}
+
+.signup-btn {
+  width: 8px;
+  padding: 2px;
+  background: transparent;
+  border: none;
+  color: #ffd700;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.signup-btn:hover {
+  color: #fff;
+  text-decoration: underline;
 }

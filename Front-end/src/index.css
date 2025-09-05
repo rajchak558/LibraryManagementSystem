@@ -11,7 +11,9 @@ body {
       rgba(0, 0, 0, 0.9)
       /* black with 50% opacity */
     ), url(.\images\library.jpg);
+
   font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+
   /* image inside public folder */
   background-size: cover;
   background-position: center;
@@ -26,7 +28,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+
   backdrop-filter: blur(8px);
+
 
   /* solid black hides everything */
   /* OR try: background: rgba(0, 0, 0, 0.85); for slight transparency */
@@ -71,8 +75,7 @@ body {
     left: 0;
     width: 100%;
     background: #000;
-    /* solid black hides everything */
-    /* OR try: background: rgba(0, 0, 0, 0.85); for slight transparency */
+
     padding: 15px 40px;
     display: flex;
     justify-content: center;
