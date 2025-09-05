@@ -11,7 +11,7 @@ body {
       rgba(0, 0, 0, 0.9)
       /* black with 50% opacity */
     ), url(.\images\library.jpg);
-  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+  font-family: "Lucida Handwriting", "Brush Script MT";
   /* image inside public folder */
   background-size: cover;
   background-position: center;
@@ -26,12 +26,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent;
-  padding: 15px 40px;
+  background-color:rgba(0, 0, 0, 0.95) ;
+
+  /* solid black hides everything */
+  /* OR try: background: rgba(0, 0, 0, 0.85); for slight transparency */
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 9999;
+  /* always on top */
 }
 
 .header-container {
@@ -62,15 +66,16 @@ body {
 
 /* Footer */
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  padding: 15px;
-  text-align: center;
-  font-size: 14px;
-  color: #ccc;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
 /* Main content */
@@ -79,6 +84,7 @@ body {
   margin-bottom: 80px;
   text-align: center;
   padding: 20px;
+  backdrop-filter: none;
 }
 
 .main-content h1 {
@@ -118,6 +124,7 @@ body {
   color: #000;
   transform: scale(1.05);
 }
+
 .page-container {
   display: flex;
   flex-direction: column;

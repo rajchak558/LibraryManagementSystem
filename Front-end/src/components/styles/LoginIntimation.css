@@ -1,6 +1,7 @@
 /* LoginIntimation.css */
 
 .login-intimation {
+  background: rgba(197, 184, 184, 0.223);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@
   justify-content: center;
   padding: 2rem;
   color: #fff;
+  background: rgba(244, 244, 244, 0.9);
   text-align: center;
 }
 

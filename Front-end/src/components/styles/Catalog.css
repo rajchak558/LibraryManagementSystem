@@ -1,40 +1,78 @@
-/* styles/Catalog.css */
-
-.catalog-header {
+.page-container {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1c1c1c, #2d2d2d);
+  /* page background */
+  color: #fff;
+
 }
 
-.filter-tab {
-  
-  display: flex;
-  align-items: center;
+.catalog-container {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.catalog-container h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #ffd700;
+}
+
+/* Grid layout */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
   justify-content: center;
-  gap: 15px;
-  margin: 20px auto;
-  max-width: 1000px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.filter-icon {
+/* Book card */
+.book-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
   cursor: pointer;
-  color: #333;
 }
 
-.filter-tab select {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #888;
-  background-color: rgba(255, 255, 255, 0.1);
+.book-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Book cover */
+.book-cover {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Translucent overlay */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* ✅ transparent background */
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  /* ✅ glass-like blur */
+}
+
+.overlay h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.overlay p {
   font-size: 14px;
-  cursor: pointer;
-  color: antiquewhite;
-}
-
-.filter-tab select:hover {
-  border-color: #555;
+  margin: 4px 0 0;
+  color: #ddd;
 }

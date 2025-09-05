@@ -1,42 +1,67 @@
-// components/Catalog.jsx
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import { Filter } from "lucide-react";
-import "./styles/Catalog.css"; 
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import "./styles/Catalog.css";
 
 function Catalog() {
+  // Mock book data (replace with API later)
+  const books = [
+    {
+      id: "B001",
+      title: "The Silent Library",
+      author: "John Doe",
+      isbn: "978-1234567890",
+      genre: "Mystery",
+      availability: "Available",
+      copies: 5,
+    },
+    {
+      id: "B002",
+      title: "Whispers of the Wind",
+      author: "Jane Smith",
+      isbn: "978-9876543210",
+      genre: "Romance",
+      availability: "Checked Out",
+      copies: 0,
+    },
+    {
+      id: "B003",
+      title: "Shadows of Time",
+      author: "Mark Brown",
+      isbn: "978-1122334455",
+      genre: "Fantasy",
+      availability: "Available",
+      copies: 3,
+    },
+    {
+      id: "B004",
+      title: "Echoes of Silence",
+      author: "Emily Clark",
+      isbn: "978-6677889900",
+      genre: "Drama",
+      availability: "Available",
+      copies: 2,
+    },
+  ];
+
   return (
-    <div className="catalog-page">
+    <div className="page-container">
       <Header />
-      <main className="main-content">
-        <div className="catalog-header">
-          <h2>Library Catalog</h2>
-          <Filter size={24} className="filter-icon" />
-        </div>
 
-        <p>Here you will see a list of available books (to be implemented).</p>
-
-        {/* Filter Tab Section */}
-        <div className="filter-tab">
-          <Filter size={20} className="filter-icon" />
-
-          <select>
-            <option value="">Filter by Title</option>
-            <option value="book1">Book 1</option>
-            <option value="book2">Book 2</option>
-          </select>
-
-          <select>
-            <option value="">Filter by Author</option>
-            <option value="author1">Author 1</option>
-            <option value="author2">Author 2</option>
-          </select>
-
-          <select>
-            <option value="">Filter by Genre</option>
-            <option value="fiction">Fiction</option>
-            <option value="nonfiction">Non-fiction</option>
-          </select>
+      <main className="catalog-container">
+        <h2>Library Catalog</h2>
+        <div className="book-grid">
+          {books.map((book) => (
+            <div key={book.id} className="book-card">
+              <h3>{book.title}</h3>
+              <p><strong>Book ID:</strong> {book.id}</p>
+              <p><strong>Author:</strong> {book.author}</p>
+              <p><strong>ISBN:</strong> {book.isbn}</p>
+              <p><strong>Genre:</strong> {book.genre}</p>
+              <p><strong>Availability:</strong> {book.availability}</p>
+              <p><strong>Copies:</strong> {book.copies}</p>
+            </div>
+          ))}
         </div>
       </main>
 

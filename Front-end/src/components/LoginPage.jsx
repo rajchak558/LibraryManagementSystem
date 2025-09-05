@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/LoginPage.css";
+import { Link } from "react-router-dom";
+
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -80,6 +82,11 @@ function LoginPage() {
 
           <button type="submit">Login</button>
         </form>
+          <br></br>
+        <div className="signup-link">
+          <span>Don't have an account? </span>
+          <Link to="/signup" className="signup-btn">Sign Up</Link>
+        </div>
       </div>
       <Footer />
     </div>

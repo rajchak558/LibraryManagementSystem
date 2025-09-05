@@ -8,6 +8,9 @@ import LoginPage from "./components/LoginPage.jsx";
 import StaffDashboard from "./components/StaffDashboard.jsx";
 import Catalog from "./components/Catalog.jsx";
 import MemberDashboard from "./components/MemberDashboard.jsx";
+import ManageMembers from "./components/ManageMembers.jsx";
+import ManageBooks from "./components/ManageBooks"; 
+import SignUp from "./components/SignUp";
 /*
 import Dashboard from "./components/Dashboard.jsx";
 
@@ -16,7 +19,7 @@ import BookCatalog from "./components/BookCatalog.jsx";
 import BookDetails from "./components/BookDetails.jsx";
 
 // Librarian/Admin pages
-import ManageMembers from "./components/ManageMembers.jsx";
+
 import ManageBooks from "./components/ManageBooks.jsx";
 */
 
@@ -32,7 +35,9 @@ function App() {
         <Route path="/login/staff" element={<LoginPage role="Staff" />} />
         <Route path="/staff/dashboard" element={<StaffDashboard />} />
         <Route path="/member/dashboard" element={<MemberDashboard />} />
-        
+        <Route path="/staff/managemembers" element={<ManageMembers />} />
+        <Route path="/staff/managebooks" element={<ManageBooks />} /> 
+        <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         {/* Member (Book Borrower) Routes 
