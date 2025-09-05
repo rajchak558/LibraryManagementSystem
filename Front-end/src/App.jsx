@@ -7,7 +7,10 @@ import LoginIntimation from "./components/LoginIntimation.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import StaffDashboard from "./components/StaffDashboard.jsx";
 import MemberDashboard from "./components/MemberDashboard.jsx";
+import TotalBorrowed from "./components/TotalBorrowed";
+import PendingFines from "./components/PendingFines.jsx";
 import Catalog from "./components/Catalog.jsx";
+import BorrowedBooks from "./components/Booksborrowed.jsx";
 /*
 import Dashboard from "./components/Dashboard.jsx";
 
@@ -32,6 +35,9 @@ function App() {
         <Route path="/login/admin" element={<LoginPage role="Admin" />} />
         <Route path="/staff/dashboard" element={<StaffDashboard />} />
         <Route path="/member/dashboard" element={<MemberDashboard />} />
+        <Route path="/borrowed-books" element={<BorrowedBooks />}></Route>
+        <Route path="/total-borrowed" element={<TotalBorrowed />} />
+        <Route path="/pending-fines" element={<PendingFines />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         {/* Member (Book Borrower) Routes 

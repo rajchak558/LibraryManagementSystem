@@ -1,8 +1,11 @@
 // components/MemberDashboard.jsx
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import Sidebar from "./Sidebar";
+import "./styles/MemberDashboard.css";
 import {
   User,
   BookOpen,
@@ -19,14 +22,25 @@ function MemberDashboard() {
   const location = useLocation();
   const [showBorrowedBooks, setShowBorrowedBooks] = useState(false);
   const profileName = location.state?.profileName || "Member User";
+//const profileName = location.state?.profileName || "Member User";
 
+// store 
+if (location.state?.profileName) {
+  localStorage.setItem("profileName", location.state.profileName);
+}
+
+
+  const navigate = useNavigate();
+
+  
   return (
     <div className="page-container">
       <Header />
 
-      <div className="member-dashboard">
+      <div className="member-1">
         {/* Sidebar */}
-        <aside className="member-dashboard-sidebar">
+          <Sidebar profileName={profileName} />  {/* use Sidebar here */}
+        {/* <aside className="member-dashboard-sidebar">
           <h2>{profileName}</h2>
           <button className="edit-profile">
             <User size={18} /> Edit Profile
@@ -65,36 +79,43 @@ function MemberDashboard() {
               </li>
             </ul>
           </div>
-        </aside>
+        </aside> */}
 
-        <main className="main-content">
+        <main className="main-content1">
           {/* Top: Welcome Section */}
-          <div className="dashboard-header">
+          <div className="dashboard-header-main">
             <h2>Welcome back, {profileName} 👋</h2>
             <p>Here’s what’s happening with your library account today.</p>
           </div>
 
           {/* Quick Stats */}
           <div className="quick-stats">
-            {/* Books Borrowed (toggleable) */}
-            <button
-              className="bttn-card"
-              onClick={() => setShowBorrowedBooks(!showBorrowedBooks)}
-            >
+            {/* Books Borrowed */}
+            
+          <div className="stat-card"
+            onClick={() => navigate("/borrowed-books")}
+            style={{ cursor: "pointer" }}
+          >
               <BookOpen size={34} />
               <h3>3</h3>
               <p>Books Borrowed</p>
-            </button>
-
+          </div>
+            
             {/* Pending Fines */}
-            <div className="stat-card">
+            <div className="stat-card"
+            onClick={() => navigate("/pending-fines")}
+            style={{ cursor: "pointer" }}
+            >
               <Wallet size={34} />
               <h3>₹50</h3>
               <p>Pending Fines</p>
             </div>
 
             {/* Total Borrowed */}
-            <div className="stat-card">
+            <div className="stat-card"
+            onClick={() => navigate("/total-borrowed")}
+            style={{ cursor: "pointer" }}
+            >
               <LayoutDashboard size={34} />
               <h3>12</h3>
               <p>Total Borrowed</p>
@@ -102,7 +123,7 @@ function MemberDashboard() {
           </div>
 
           {/* Conditionally show Borrowed Books */}
-          {showBorrowedBooks && (
+          {/* {showBorrowedBooks && (
             <div className="section borrowed-books">
               <h3>📖 Currently Borrowed Books</h3>
               <table>
@@ -140,7 +161,7 @@ function MemberDashboard() {
                 </tbody>
               </table>
             </div>
-          )}
+          )} */}
 
           {/* Alerts Section */}
           <div className="alerts">
