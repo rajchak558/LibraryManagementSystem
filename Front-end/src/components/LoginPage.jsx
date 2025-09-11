@@ -1,47 +1,58 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/LoginPage.css";
-import { Link } from "react-router-dom";
 
-
-function LoginPage() {
-  const [email, setEmail] = useState("");
+function LoginPage({ role: propRole }) {
+  const [username, setID] = useState("");
   const [password, setPassword] = useState("");
-  const [staffRole, setStaffRole] = useState(""); // For staff dropdown
+  const [role, setRole] = useState(propRole || "Member"); // default role
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const role = location.state?.role || "User";
-
-  // Function to encode data to Base64
-  const encodeBase64 = (str) => {
-    return btoa(unescape(encodeURIComponent(str)));
-  };
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Encode credentials before sending
-    const encodedEmail = encodeBase64(email);
-    const encodedPassword = encodeBase64(password);
+    const loginData = { username, password, role };
 
-    console.log(`Logging in as ${role}`);
-    console.log("Encoded Email:", encodedEmail);
-    console.log("Encoded Password:", encodedPassword);
+    try {
+      const response = await fetch("http://localhost:8080/user/log-in", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData),
+      });
 
-    if (role === "Staff") {
-      if (!staffRole) {
-        alert("Please select a Staff Role before logging in.");
-        return;
+      if (!response.ok) {
+        throw new Error("Invalid login");
       }
-      navigate("/staff/dashboard", { state: { profileName: email, staffRole } });
-    } else if (role === "Member") {
-      navigate("/member/dashboard", { state: { profileName: email } });
-    } else {
-      alert("Redirecting to Member Dashboard (not implemented yet)");
+
+      // Read response as text first (to handle plain token or JSON)
+      const text = await response.text();
+
+      let data;
+      try {
+        data = JSON.parse(text); // Try to parse as JSON
+      } catch {
+        data = { token: text }; // Treat response as a token string if not JSON
+      }
+
+      console.log("Response from backend:", data);
+
+      alert(data.message || "Login successful!");
+
+      // Navigate based on role with optional token in state
+      if (role === "Staff") {
+        navigate("/staff/dashboard", { state: { profileName: username, token: data.token } });
+      } else if (role === "Member") {
+        navigate("/member/dashboard", { state: { profileName: username, token: data.token } });
+      } else {
+        navigate("/login-intimation");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Login failed. Please check your credentials.");
     }
   };
 
@@ -52,10 +63,10 @@ function LoginPage() {
         <h2>{role} Login</h2>
         <form onSubmit={handleLogin}>
           <input
-            type="email"
+            type="text"
             placeholder="Username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setID(e.target.value)} // Correct setter here
             required
           />
           <input
@@ -65,27 +76,26 @@ function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {/* Show dropdown only if Staff login */}
-          {role === "Staff" && (
-            <select
-              value={staffRole}
-              onChange={(e) => setStaffRole(e.target.value)}
-              className="role-dropdown"
-              required
-            >
-              <option value="">Select Role</option>
-              <option value="Librarian">Librarian</option>
-              <option value="Assistant">Assistant</option>
-              <option value="Manager">Manager</option>
-            </select>
-          )}
+
+          {/* Role Dropdown */}
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="role-dropdown"
+            required
+          >
+            <option value="Member">Member</option>
+            <option value="Staff">Staff</option>
+          </select>
 
           <button type="submit">Login</button>
         </form>
-          <br></br>
+        <br />
         <div className="signup-link">
           <span>Don't have an account? </span>
-          <Link to="/signup" className="signup-btn">Sign Up</Link>
+          <Link to="/signup" className="signup-btn">
+            Sign Up
+          </Link>
         </div>
       </div>
       <Footer />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/Catalog.css";
@@ -44,22 +44,61 @@ function Catalog() {
     },
   ];
 
+  // State for genre filter
+  const [selectedGenre, setSelectedGenre] = useState("All");
+
+  // Filter books based on selected genre
+  const filteredBooks =
+    selectedGenre === "All"
+      ? books
+      : books.filter((book) => book.genre.toLowerCase() === selectedGenre.toLowerCase());
+
   return (
     <div className="page-container">
       <Header />
 
       <main className="catalog-container">
         <h2>Library Catalog</h2>
+
+        {/* Genre Filter Section */}
+        <div className="genre-filter">
+          <h3>Genre</h3>
+          <div className="genre-buttons">
+            {["All", "Fiction", "Mystery", "Romance", "Drama", "Fantasy"].map((genre) => (
+              <button
+                key={genre}
+                className={`genre-btn ${selectedGenre === genre ? "active" : ""}`}
+                onClick={() => setSelectedGenre(genre)}
+              >
+                {genre}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Books Grid */}
         <div className="book-grid">
-          {books.map((book) => (
+          {filteredBooks.map((book) => (
             <div key={book.id} className="book-card">
               <h3>{book.title}</h3>
-              <p><strong>Book ID:</strong> {book.id}</p>
-              <p><strong>Author:</strong> {book.author}</p>
-              <p><strong>ISBN:</strong> {book.isbn}</p>
-              <p><strong>Genre:</strong> {book.genre}</p>
-              <p><strong>Availability:</strong> {book.availability}</p>
-              <p><strong>Copies:</strong> {book.copies}</p>
+              <h5>
+                <strong>Book ID:</strong> {book.id}
+              </h5>
+              <h5>
+                <strong>Author:</strong> {book.author}
+              </h5>
+              <h5>
+                <strong>ISBN:</strong> {book.isbn}
+              </h5>
+              <h5>
+                <strong>Genre:</strong> {book.genre}
+              </h5>
+              <h5>
+                <strong>Availability:</strong> {book.availability}
+              </h5>
+              <h5>
+                <strong>Copies:</strong> {book.copies}
+              </h5>
             </div>
           ))}
         </div>

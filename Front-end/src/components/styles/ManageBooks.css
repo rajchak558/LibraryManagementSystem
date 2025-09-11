@@ -48,24 +48,311 @@
 
 /* Book details box */
 .book-details {
-  margin: 30px auto;
-  max-width: 600px;
+  margin-top: 1px auto;
+  max-width: 1000px;
   padding: 20px;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   color: white;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
-}
-
-.book-details:hover {
-  transform: scale(1.02);
 }
 
 .book-details h3 {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   font-size: 1.5rem;
   color: #f8d210;
-  /* Golden accent for books */
+}
+
+/* Table styling */
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-table th,
+.book-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.book-table th {
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f8d210;
+}
+
+.book-table tr {
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease-in-out;
+}
+
+.book-table tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.edit-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #2196f3;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #1976d2;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal box */
+.modal {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  color: #f8d210;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.save-btn {
+  background: #4caf50;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #f44336;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #388e3c;
+}
+
+.cancel-btn:hover {
+  background: #d32f2f;
+}
+/* No matches row */
+.no-matches {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+/* Add Book Button */
+.add-btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  border: 8px 8px 20px rgba(226, 0, 0, 0.91) ;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #000000, #0d47a1);
+  transform: translateY(-3px);
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+/* Container for search bar + button */
+.search-add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  /* so on smaller screens it stacks */
+}
+
+/* Adjust search bar so it fits well */
+.search-bar {
+  flex: 1;
+  min-width: 250px;
+}
+/* Popup overlay */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Popup card */
+.popup-content {
+  background: rgba(22, 8, 8, 0.99);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 30px;
+  border-radius: 16px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation: scaleUp 0.3s ease;
+}
+
+/* Title */
+.popup-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+  /* golden accent */
+  font-weight: 600;
+}
+
+/* Input fields */
+.popup-content input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.popup-content input:focus {
+  border: 1px solid #ffd700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons row */
+.popup-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Save button */
+.save-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+/* Close button */
+.close-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #f44336, #b71c1c);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

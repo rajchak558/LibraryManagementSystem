@@ -24,24 +24,33 @@
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
+  gap: 20px;
+  padding-left: 40px;
   justify-content: center;
 }
 
 /* Book card */
 .book-card {
   position: relative;
+  padding-left:20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  /* ✅ subtle white border */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  /* ✅ light translucent bg */
+  backdrop-filter: blur(5px);
 }
 
 .book-card:hover {
   transform: translateY(-6px);
+  border-color: #ffd700;
+  /* ✅ highlight on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
-
 /* Book cover */
 .book-cover {
   width: 100%;
@@ -75,4 +84,50 @@
   font-size: 14px;
   margin: 4px 0 0;
   color: #ddd;
+}
+/* Genre filter section */
+/* Genre filter section */
+.genre-filter {
+  margin: 20px 1px;
+  text-align: left;
+  /* ✅ align heading left */
+  padding-left: 40px;
+  /* ✅ optional: add some spacing from edge */
+}
+
+.genre-filter h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #ffeb3b;
+}
+
+.genre-buttons {
+  display: flex;
+  justify-content: flex-start;
+  /* ✅ align buttons left */
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.genre-btn {
+  padding: 10px 18px;
+  border: 8px 8px 10px;
+  border-color: rgba(2, 169, 88, 0.762);
+  border-radius: 8px; 
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.genre-btn:hover {
+  background: rgb(152, 145, 128,0.1);
+  transform: translateY(-2px);
+}
+
+.genre-btn.active {
+  background: #2e7d32;
+  color: #fff;
 }
