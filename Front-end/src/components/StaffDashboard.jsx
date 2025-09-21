@@ -6,7 +6,6 @@ import "./styles/StaffDashboard.css";
 function StaffDashboard() {
   const location = useLocation();
   const navigate = useNavigate();
-
   const profileName = location.state?.profileName || "Unknown Staff";
 
   const handleSignOut = () => {
